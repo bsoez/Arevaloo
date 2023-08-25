@@ -66,10 +66,9 @@ function realizarPeticionJQuery() {
     const url = "https://apimocha.com/belenapi/twitch";
 
     $.get(url, function(response) {
-        console.log(response);
     })
-    .done(function() {
-        console.log("Petición completada exitosamente.");
+    .done(function(response) {
+        console.log(response);
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         console.error("Error en la petición:", textStatus, errorThrown);
