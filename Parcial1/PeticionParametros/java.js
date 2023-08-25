@@ -1,5 +1,6 @@
 window.onload = function() {
     const categoriasSelect = document.getElementById("categorias");
+    const chisteImagen = document.getElementById("chisteImagen");
 
     // Función para cargar las categorías
     fetch('https://api.chucknorris.io/jokes/categories')
@@ -24,7 +25,8 @@ window.onload = function() {
         fetch(`https://api.chucknorris.io/jokes/random?category=${categoriaSeleccionada}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data); // Aquí puedes manejar la respuesta de la API
+                chisteContainer.innerHTML = `<p>${data.value}</p>`;
+                document.getElementById("chisteContainer").style.display = "block";
             })
             .catch(error => {
                 console.error("Error fetching joke: ", error);

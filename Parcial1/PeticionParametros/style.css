@@ -1,1 +1,54 @@
+/* Estilo para el label "Categorias" */
+label {
+    font-size: 18px; /* Cambia el tamaño de fuente según tus preferencias */
+}
+/* Cambiar el color de fondo de toda la página */
+body {
+    background-color: #f7dded; /* Puedes cambiar este color a tu preferencia */
+}
+
+/* Estilo para el título */
+.titulo {
+    color: #33a3ff; /* Cambiar el color del texto */
+    font-size: 28px; /* Cambiar el tamaño de fuente */
+    text-align: center; /* Cambiar la alineación del texto */
+}
+
+
+/* Estilo para el botón */
+#ButtonBuscar {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Estilo para la lista desplegable */
+#categorias {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+/* Estilo para el área de respuesta */
+#chisteContainer {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #928f8f;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para cambiar el tamaño de la imagen */
+div img {
+    margin: 10px;
+    width: 300px; /* Cambia el ancho según tus preferencias */
+    height: auto; /* Mantenemos la proporción original de la imagen */
+}
+
 
