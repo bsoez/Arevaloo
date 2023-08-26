@@ -50,3 +50,68 @@ body {
   .button:nth-child(5) {
     background-color: #1abc9c;
   }
+  
+
+/* Dialogo */
+.dialog {
+  display: none;
+  position: fixed;
+  top: 100px; /* Coloca el cuadro de diálogo en la parte inferior */
+  left: 0;
+  width: 100%;
+  max-height: 80%; /* Limita la altura máxima */
+  z-index: 1000;
+}
+
+.dialog-content {
+  background-color: white;
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  /* top: 50%; Elimina esto para que no haya desplazamiento vertical */
+  /* transform: translateY(-50%); Elimina esto también */
+  border-radius: 5px;
+  animation: fadeIn 0.3s ease;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+  font-family: 'Dosis', sans-serif;
+  color: #FF69B4; 
+}
+
+
+@keyframes glitter {
+  0%, 100% {
+      transform: scale(1);
+      opacity: 0.8;
+  }
+  50% {
+      /* transform: scale(1.02); */
+      opacity: 1;
+  }
+}
+
+h2 {
+  animation: glitter 1.5s infinite;
+}

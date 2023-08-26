@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página HTML</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis&display=swap%22%3E">
     <link rel="stylesheet" href="style.css">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -11,11 +12,19 @@
     <script src="javascript.js"></script>
 </head>
 <body>
+   
     <button class = "button" onclick="XML()">XMLHttpRequest</button>
     <button class = "button"  onclick="FetchAsync()">Fetch</button>
     <button class = "button" onclick="FetchPromesa()">Fetch promesa</button>
     <button class = "button" id ="btnJQuery">JQuery</button>
     <button class = "button" onclick="AxiosRequest()">Axios</button>
-
+    <!--Dialogo -->
+    <div id="customDialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close" onclick="hideDialog()">&times;</span>
+            <h2>Título del Diálogo</h2> 
+            <pre id="dialogText"></pre>
+        </div>
+    </div>
 </body>
 </html>
