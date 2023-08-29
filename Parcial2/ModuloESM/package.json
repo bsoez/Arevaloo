@@ -1,0 +1,13 @@
+{
+  "name": "paqueteeee",
+  "version": "1.0.0",
+  "description": "--Instalacion del modulo:",
+  "main": "index.js",
+  "scripts": {
+    "type": "modulo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

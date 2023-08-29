@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Carga el módulo de forma asíncrona -->
+    <script>
+        // Usa import() para cargar el módulo de forma asíncrona
+        // import('./index.mjs')
+        //     .then((miModulo) => {
+        //         // Usa la función del módulo de forma asíncrona
+        //         const fraseAsincrona = miModulo.obtieneFrase(1);
+        //         console.log(fraseAsincrona);
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error al cargar el módulo:', error);
+        //     });
+
+            (async () => {
+            //import() para cargar el módulo de forma asíncrona y espera su carga
+            const miModulo = await import('./index.mjs');
+
+            // Usa la función del módulo de forma síncrona
+            const fraseSincrona = miModulo.obtieneFrase(1);
+            console.log(fraseSincrona);
+        })();
+    </script>
+</body>
+</html>
