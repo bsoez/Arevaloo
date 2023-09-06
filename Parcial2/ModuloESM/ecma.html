@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<!-- importacion sincrona -->
 <body>
-    <!-- Carga el módulo de forma asíncrona -->
-    <script>
-        // Usa import() para cargar el módulo de forma asíncrona
-        // import('./index.mjs')
-        //     .then((miModulo) => {
-        //         // Usa la función del módulo de forma asíncrona
-        //         const fraseAsincrona = miModulo.obtieneFrase(1);
-        //         console.log(fraseAsincrona);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error al cargar el módulo:', error);
-        //     });
+    <button id="ObtenerFrase">Obtener Frase</button>
+    <p id="fraseMostrada"></p>
 
-            (async () => {
-            //import() para cargar el módulo de forma asíncrona y espera su carga
-            const miModulo = await import('./index.mjs');
+    <script type="module">
+        import { obtieneFrase } from "./index.js";
 
-            // Usa la función del módulo de forma síncrona
-            const fraseSincrona = miModulo.obtieneFrase(1);
-            console.log(fraseSincrona);
-        })();
+        const obtenerFraseButton = document.getElementById("ObtenerFrase");
+        const fraseMostrada = document.getElementById("fraseMostrada");
+
+        obtenerFraseButton.addEventListener("click", () => {
+
+            const frase = obtieneFrase(2);
+            fraseMostrada.textContent = frase;
+        });
     </script>
 </body>
+
 </html>
