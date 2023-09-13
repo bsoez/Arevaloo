@@ -18,6 +18,7 @@ const config = {
     }
 };
 
+//CONSULTAR
 app.get("/usuarios", async (req, res) => {
     try {
 
@@ -35,6 +36,67 @@ app.get("/usuarios", async (req, res) => {
     }
 });
 
+//POST
+app.post("/usuarios", async (req, res) => {
+    try {
+
+        const nombre = req.query.nombre;
+        const edad = req.query.edad;
+        const juegoFavorito = req.query.juegoFavorito;
+        const pool = new ConnectionPool(config);
+        await pool.connect();
+
+        const result = await pool
+            .request()
+            .input('nombre', nombre)
+            .input('edad', edad)
+            .input('juegoFavorito', juegoFavorito)
+            .query('INSERT INTO PruebaApiRest VALUES (@nombre, @edad, @juegoFavorito)');
+
+        await pool.close();
+
+        if (result.rowsAffected[0] === 1) {
+            res.status(200).json({ mensaje: "Información agregada correctamente" });
+        } else {
+            res.status(400).json({ mensaje: "Error al agregar la información" });
+        }
+
+        // res.json(result.recordset);
+    } catch (error) {
+        console.error("Error de conexión:", error.message);
+        res.status(500).json({ mensaje: "Error de conexión" });
+    }
+});
+
+//ELIMINAR
+app.delete("/usuarios", async (req, res) => {
+    try {
+
+        const edad = req.query.edad;
+        const pool = new ConnectionPool(config);
+        await pool.connect();
+
+        const result = await pool
+            .request()
+            .input('edad', edad)
+            .query('DELETE FROM PruebaApiRest WHERE Edad = @edad');
+
+        await pool.close();
+
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).json({ mensaje: "Se eliminó correctamente" });
+        } else {
+            res.status(404).json({ mensaje: "Registro no eliminado" });
+        }
+
+        // res.json(result.recordset);
+    } catch (error) {
+        console.error("Error de conexión:", error.message);
+        res.status(500).json({ mensaje: "Error de conexión" });
+    }
+});
+
+//CONSULTA POR PARAMETRO
 app.get("/usuarios/:edad", async (req, res) => {
     console.log(req.params.edad);
     const { edad } = req.params;
