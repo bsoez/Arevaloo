@@ -96,6 +96,37 @@ app.delete("/usuarios", async (req, res) => {
     }
 });
 
+
+// ACTUALIZAR
+app.put("/usuarios", async (req, res) => {
+    try {
+
+        const edad = req.query.edad;
+        const juegoFavorito = req.query.juegoFavorito;
+        const pool = new ConnectionPool(config);
+        await pool.connect();
+
+        const result = await pool
+            .request()
+            .input('juegoFavorito', juegoFavorito)
+            .input('edad', edad)
+            .query('UPDATE PruebaApiRest SET Edad = @edad WHERE JuegoFavorito = @juegoFavorito');
+
+        await pool.close();
+
+        if (result.rowsAffected[0] > 0) {
+            res.status(200).json({ mensaje: "Se actualizó correctamente" });
+        } else {
+            res.status(404).json({ mensaje: "Registro no actualizado" });
+        }
+
+        // res.json(result.recordset);
+    } catch (error) {
+        console.error("Error de conexión:", error.message);
+        res.status(500).json({ mensaje: "Error de conexión" });
+    }
+});
+
 //CONSULTA POR PARAMETRO
 app.get("/usuarios/:edad", async (req, res) => {
     console.log(req.params.edad);
