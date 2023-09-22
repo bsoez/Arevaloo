@@ -4,9 +4,13 @@ const fs = require('fs');
 const path = require('path');
 const { ConnectionPool } = require('mssql');
 const app = express();
+const cors = require('cors');
 
-var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'})
-app.use(morgan('combined', {stream: accessLogStream}))
+// Configuración de registro de acceso
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
+app.use(morgan('combined', {stream: accessLogStream}));
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
 
 const config = {
     user: 'barevalo',
@@ -22,11 +26,10 @@ const config = {
 app.get("/usuarios", async (req, res) => {
     try {
 
-        let sentenciasql = 'SELECT * FROM PruebaApiRest'
         const pool = new ConnectionPool(config);
         await pool.connect();
 
-        const result = await pool.request().query(sentenciasql);
+        const result = await pool.request().query('SELECT * FROM PruebaApiRest');
 
         await pool.close();
 
@@ -150,6 +153,7 @@ app.get("/usuarios/:edad", async (req, res) => {
         await pool.close();
     }
 });
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log("Server Express escuchando en el puerto " + PORT);
