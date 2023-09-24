@@ -55,3 +55,6 @@
 ::ffff:127.0.0.1 - - [22/Sep/2023:13:38:52 +0000] "PUT /usuarios?edad=50&juegoFavorito=minecraft HTTP/1.1" 200 41 "-" "Thunder Client (https://www.thunderclient.com)"
 ::ffff:127.0.0.1 - - [22/Sep/2023:13:40:53 +0000] "PUT /usuarios?edad=120&juegoFavorito=minecraft HTTP/1.1" 200 41 "-" "Thunder Client (https://www.thunderclient.com)"
 ::ffff:127.0.0.1 - - [22/Sep/2023:13:41:01 +0000] "GET /usuarios HTTP/1.1" 200 351 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [22/Sep/2023:13:43:52 +0000] "GET /usuarios HTTP/1.1" 500 32 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [22/Sep/2023:13:44:00 +0000] "GET /usuarios HTTP/1.1" 500 32 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [22/Sep/2023:13:44:01 +0000] "GET /usuarios HTTP/1.1" 500 32 "http://127.0.0.1:5500/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
