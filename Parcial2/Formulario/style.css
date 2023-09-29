@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Source Code Pro';
+}
+
+h1 {
+    color: #ff4081; 
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #ff4081; /* Color rosado */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff005d; /* Color rosado más oscuro al pasar el mouse */
+}
+
+
+.table-custom {
+    border-radius: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    animation: opacidadCiclica 2.5s ease-in-out infinite alternate;
+}
+
+.table-custom tbody tr:nth-child(odd) {
+    background-color: #f8caf2; 
+}
+
+.table-custom tbody tr:nth-child(even) {
+    background-color: #ffffff; 
+}
+
+.table-custom thead {
+    background-color: #efa1e5; 
+    color: #000000; 
+}
+
+@keyframes opacidadCiclica {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
