@@ -5,12 +5,15 @@ const path = require('path');
 const { ConnectionPool } = require('mssql');
 const app = express();
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 // Configuración de registro de acceso
 var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
 app.use(morgan('combined', {stream: accessLogStream}));
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const config = {
     user: 'barevalo',
@@ -22,31 +25,13 @@ const config = {
     }
 };
 
-//CONSULTAR
-app.get("/usuarios", async (req, res) => {
-    try {
-
-        const pool = new ConnectionPool(config);
-        await pool.connect();
-
-        const result = await pool.request().query('SELECT * FROM PruebaApiRest');
-
-        await pool.close();
-
-        res.json(result.recordset);
-    } catch (error) {
-        console.error("Error de conexión:", error.message);
-        res.status(500).json({ mensaje: "Error de conexión" });
-    }
-});
-
-//POST
+// POST
 app.post("/usuarios", async (req, res) => {
     try {
+        const nombre = req.body.nombre; 
+        const edad = req.body.edad;
+        const juegoFavorito = req.body.juegoFavorito;
 
-        const nombre = req.query.nombre;
-        const edad = req.query.edad;
-        const juegoFavorito = req.query.juegoFavorito;
         const pool = new ConnectionPool(config);
         await pool.connect();
 
@@ -65,7 +50,25 @@ app.post("/usuarios", async (req, res) => {
             res.status(400).json({ mensaje: "Error al agregar la información" });
         }
 
-        // res.json(result.recordset);
+    } catch (error) {
+        console.error("Error de conexión:", error.message);
+        res.status(500).json({ mensaje: "Error de conexión" });
+    }
+});
+
+
+//CONSULTAR
+app.get("/usuarios", async (req, res) => {
+    try {
+
+        const pool = new ConnectionPool(config);
+        await pool.connect();
+
+        const result = await pool.request().query('SELECT * FROM PruebaApiRest');
+
+        await pool.close();
+
+        res.json(result.recordset);
     } catch (error) {
         console.error("Error de conexión:", error.message);
         res.status(500).json({ mensaje: "Error de conexión" });
@@ -92,8 +95,6 @@ app.delete("/usuarios", async (req, res) => {
         } else {
             res.status(404).json({ mensaje: "Registro no eliminado" });
         }
-
-        // res.json(result.recordset);
     } catch (error) {
         console.error("Error de conexión:", error.message);
         res.status(500).json({ mensaje: "Error de conexión" });
@@ -153,6 +154,11 @@ app.get("/usuarios/:edad", async (req, res) => {
         await pool.close();
     }
 });
+
+
+
+
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

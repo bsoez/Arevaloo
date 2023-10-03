@@ -3,14 +3,14 @@ body {
     background-color: #f8f8f8;
 }
 
-.container {
+.formulario {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    text-align: center;
+    text-align: left;
     font-family: 'Source Code Pro';
 }
 
@@ -46,6 +46,17 @@ button:hover {
     background-color: #ff005d; /* Color rosado más oscuro al pasar el mouse */
 }
 
+.container{
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Source Code Pro';
+}
+
 
 .table-custom {
     border-radius: 10px;
@@ -75,4 +86,3 @@ button:hover {
         opacity: 0.8;
     }
 }
-
