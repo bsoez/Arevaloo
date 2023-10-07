@@ -1,0 +1,22 @@
+body {
+
+    background-image: url('clouds.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 50px 0 0;
+}
+
+form {
+    text-align: center;
+}
+
+iframe {
+    margin-top: 5px;
+}

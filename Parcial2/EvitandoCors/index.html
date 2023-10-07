@@ -3,33 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Evitando Cors</title>
 </head>
 <body>
-    <script>let funcionRetorno = function(dato) {console.log(dato)}</script>
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <form target="resultado" method="get" action="http://localhost:8080/ServidorExpress">
-
-        <button type="button" id="btn-fetch">Peticion Fetch</button>
-
-        <button type="submit" id="btn-submit">Peticion Submit</button>
-
-    </form></br>
+    <form target="resultado" method="GET" action="http://localhost:8080/alumnos">
+        <button type="submit" id="btnSubmit">Peticion Submit</button>
+        <button type="button" id="btnFetch">Peticion Fetch</button>
+    </form>
     <iframe name="resultado"></iframe>
+    <br>
+    <button id="btn">Peticion CORS</button>
+    <script src="script.js"></script>
 </body>
-
 </html>

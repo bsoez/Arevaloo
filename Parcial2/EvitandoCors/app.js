@@ -1,15 +1,21 @@
 const express = require('express');
 const app = express();
+var cors = require('cors')
+app.use(express.json())
 
-app.use(express.json());
-
-app.get("/ServidorExpress",(req,res)=>{
-    res.json({respuesta:"Contestando"})
+//Antes del Cors
+app.get("/alumnas", (req, resp) => {
+    resp.json({ mensaje: "Servidor Express contestando a petición con CORS" }); 
 });
 
-app.post("/ServidorExpress",(req,res)=>{res.send("Servidor express contestando a peticion GET")
+app.use(cors())
+
+//Submit y Fetch
+app.get("/alumnos", (req, resp) => {
+    resp.json({ mensaje: "Servidor Express contestando a petición" }); 
 });
 
-app.listen(8080,(req,res)=>{
-    console.log("Servidor express escuchando")
-})
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log("Server Express escuchando en el puerto " + PORT);
+});
