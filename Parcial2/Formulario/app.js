@@ -25,6 +25,8 @@ const config = {
     }
 };
 
+
+
 // POST
 app.post("/usuarios", async (req, res) => {
     try {
@@ -53,14 +55,16 @@ app.post("/usuarios", async (req, res) => {
     } catch (error) {
         console.error("Error de conexión:", error.message);
         res.status(500).json({ mensaje: "Error de conexión" });
+  
     }
 });
 
 
-//CONSULTAR
-app.get("/usuarios", async (req, res) => {
-    try {
 
+// CONSULTAR
+app.get("/usuarios", async (req, res, next) => {
+    try {
+    
         const pool = new ConnectionPool(config);
         await pool.connect();
 
@@ -70,10 +74,10 @@ app.get("/usuarios", async (req, res) => {
 
         res.json(result.recordset);
     } catch (error) {
-        console.error("Error de conexión:", error.message);
-        res.status(500).json({ mensaje: "Error de conexión" });
+        next (error);
     }
 });
+
 
 //ELIMINAR
 app.delete("/usuarios", async (req, res) => {
@@ -156,8 +160,9 @@ app.get("/usuarios/:edad", async (req, res) => {
 });
 
 
-
-
+app.use((err, req, res, next) => {
+    res.status(500).send(err.message);
+});
 
 
 const PORT = process.env.PORT || 8080;
