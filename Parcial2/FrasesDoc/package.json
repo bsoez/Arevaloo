@@ -1,0 +1,25 @@
+{
+    "name": "paqueteeee",
+    "version": "1.0.0",
+    "description": " ",
+    "main": "index.js",
+    "scripts": {
+      "type": "modulo",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bsoez/"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/bsoez/"
+    },
+    "homepage": "https://github.com/bsoez/",
+    "devDependencies": {
+        "clean-jsdoc-theme": "4.2.13"
+    }
+  }
+  
