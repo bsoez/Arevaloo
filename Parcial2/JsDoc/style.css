@@ -1,0 +1,54 @@
+/* Estilo general del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0e6f0; /* Color de fondo pastel */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor del formulario */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #ffe6e6; /* Color de fondo pastel */
+    border: 1px solid #ff9999; /* Borde de color pastel */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Campos de entrada de texto */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ff9999; /* Borde de color pastel */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f99ecc; /* Color de botón pastel */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Resultado */
+p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo de mensaje de resultado */
+#resultado {
+    background-color: #ff66b2; /* Color de fondo pastel para el resultado */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px; /* Bordes redondeados */
+    display: inline-block;
+}
