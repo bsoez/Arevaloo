@@ -1,5 +1,16 @@
 const express = require('express');
+const { ConnectionPool } = require('mssql');
 const router = express.Router();
+
+const config = {
+  user: 'barevalo',
+  password: 'are_p@ss23*',
+  server: 'affinitysql.database.windows.net', 
+  database: 'Affinity', 
+  options: {
+      encrypt: true
+  }
+};
 
 /**
  * @swagger
@@ -11,7 +22,7 @@ const router = express.Router();
  *         description: Se obtienen los usuarios con éxito.
  */
 
-router.get('/usuarios', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
 
         const pool = new ConnectionPool(config);
@@ -59,7 +70,7 @@ router.get('/usuarios', async (req, res) => {
  *         description: Error al agregar la información o campos vacíos/nulos.
  */
 
-router.post('/usuarios', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const nombre = req.query.nombre;
         const edad = req.query.edad;
@@ -93,5 +104,4 @@ router.post('/usuarios', async (req, res) => {
     }
 });
 
-
-module.exports = router;
+module.exports.router=router;
