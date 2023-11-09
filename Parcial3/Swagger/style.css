@@ -1,0 +1,28 @@
+.table-custom {
+    border-radius: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    animation: opacidadCiclica 2.5s ease-in-out infinite alternate;
+}
+
+.table-custom tbody tr:nth-child(odd) {
+    background-color: #f8caf2; 
+}
+
+.table-custom tbody tr:nth-child(even) {
+    background-color: #ffffff; 
+}
+
+.table-custom thead {
+    background-color: #efa1e5; 
+    color: #000000; 
+}
+
+@keyframes opacidadCiclica {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
