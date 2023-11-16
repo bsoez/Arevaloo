@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Usuarios",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/usuarios": {
+      "get": {
+        "description": "Obtiene todos los usuarios.",
+        "responses": {
+          "200": {
+            "description": "Se obtienen los usuarios con éxito."
+          }
+        }
+      },
+      "post": {
+        "description": "Crea un nuevo usuario.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "nombre",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "El nombre del usuario."
+          },
+          {
+            "in": "query",
+            "name": "edad",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "La edad del usuario."
+          },
+          {
+            "in": "query",
+            "name": "juegoFavorito",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "El juego favorito del usuario."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuario creado con éxito."
+          },
+          "400": {
+            "description": "Error al agregar la información o campos vacíos/nulos."
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}
