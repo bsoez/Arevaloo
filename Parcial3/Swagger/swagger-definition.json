@@ -58,6 +58,80 @@
             "description": "Error al agregar la información o campos vacíos/nulos."
           }
         }
+      },
+      "delete": {
+        "description": "Elimina un usuario por ID.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "El ID del usuario a eliminar."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuario eliminado con éxito."
+          },
+          "404": {
+            "description": "No se encontró el usuario para eliminar."
+          },
+          "400": {
+            "description": "Error al eliminar el usuario o ID vacío/nulo."
+          }
+        }
+      },
+      "put": {
+        "description": "Actualiza un usuario por ID.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "El ID del usuario a actualizar."
+          },
+          {
+            "in": "query",
+            "name": "nombre",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Nuevo nombre del usuario."
+          },
+          {
+            "in": "query",
+            "name": "edad",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Nueva edad del usuario."
+          },
+          {
+            "in": "query",
+            "name": "juegoFavorito",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Nuevo juego favorito del usuario."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuario actualizado con éxito."
+          },
+          "404": {
+            "description": "No se encontró el usuario para actualizar."
+          },
+          "400": {
+            "description": "Error al actualizar el usuario o ID vacío/nulo."
+          }
+        }
       }
     }
   },

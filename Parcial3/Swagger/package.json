@@ -5,10 +5,17 @@
     "morgan": "^1.10.0",
     "msnodesqlv8": "^4.1.1",
     "mssql": "^10.0.1",
+    "openapi-snippet": "^0.14.0",
     "redoc-express": "^2.1.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-themes": "^1.2.30",
     "swagger-ui-express": "^5.0.0",
     "swagger-ui-themes": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   }
 }

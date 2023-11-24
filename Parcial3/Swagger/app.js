@@ -71,3 +71,4 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log("Server Express escuchando en el puerto " + PORT);
 });
+module.exports = app
