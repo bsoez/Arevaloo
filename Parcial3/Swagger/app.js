@@ -8,6 +8,8 @@ const redoc = require('redoc-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 const app = express();
 const ruta_usuario = require('./routes/ruta_usuario');
+const openApiSnippets = require('openapi-snippet');
+
 
 const { SwaggerTheme } = require('swagger-themes');
 const theme = new SwaggerTheme('v3'); // Specifying the Swagger Version
@@ -63,6 +65,13 @@ app.get('/readme', (req, res) => {
     res.send(readmeContent);
 });
 
+
+// Endpoint para obtener snippets de código OpenAPI
+app.get('/snippets', (req, res) => {
+    const targets = ['csharp_restsharp', 'go_native', 'php_http1', 'python_python3'];
+    const snippets = openApiSnippets.getSnippets(swaggerDefinition, targets);
+    res.json(snippets);
+});
 
 // Rutas de usuarios
 app.use('/usuarios', ruta_usuario.router);
